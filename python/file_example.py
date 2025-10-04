@@ -52,6 +52,15 @@ def main():
         category_spent = new_transformed_df.groupby("category").sum("total_spent")
         print("\n\nTotal $ spent per category:")
         print(category_spent)
+
+        # LOAD phase
+        print("Writing 'spent_by_region.csv' file...")
+        region_spent.to_csv(f"{output_path}/spent_by_region.csv")
+        print("File created.")
+
+        print("Writing 'spent_per_category.csv' file...")
+        category_spent.to_csv(f"{output_path}/spent_per_category.csv")
+        print("File created.")
     except Exception as e:
         # Exception error aliased as 'e' then formatted in the line below
         print(f"Error executing main script: {e}")
