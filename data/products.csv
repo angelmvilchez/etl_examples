@@ -1,6 +1,6 @@
-ProductID,ProductName,Category,UnitPrice
+ID,ProductName,Category,UnitPrice
 1,Product_1,Electronics,111.26
 2,Product_2,Clothing,47.99
-3,Product_3,Electronics,119.91
-4,Product_4,Electronics,162.84
-5,Product_5,Clothing,6.27
+3,Product_3,Food,119.91
+4,Product_4,Personal care,162.84
+5,Product_5,Outdoors,6.27

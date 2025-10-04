@@ -1,4 +1,4 @@
-CustomerID,CustomerName,Region
+ID,CustomerName,Region
 1,Customer_1,East
 2,Customer_2,North
 3,Customer_3,South

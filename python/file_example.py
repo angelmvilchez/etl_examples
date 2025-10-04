@@ -3,6 +3,7 @@
 import pandas as pd
 
 data_path = "../data"
+output_path = "../output"
 
 def main():
     try:
@@ -21,6 +22,36 @@ def main():
         products_df = pd.read_csv(f"{data_path}/products.csv")
         print("Products dataset read correctly.")
         print(products_df, end="\n\n")
+
+        # TRANSFORM phase
+        spent_per_order = []
+        region_order = []
+        category_order = []
+        for index, row in orders_df.iterrows():
+            amount_spent = products_df[products_df["ID"] == row["ProductID"]]["UnitPrice"] * row["Quantity"]
+            # Selected unit price of the product based on it's ID, then multiplied by the quantity ordered
+            spent_per_order.append(round(float(amount_spent.iloc[0]),2))
+            # iloc used to convert series of single element, using only float() will result in a TypeError in the future
+            region = customers_df[customers_df["ID"] == row["CustomerID"]]["Region"]
+            # Selected region of the customer based on it's ID
+            region_order.append(region.iloc[0])
+
+            category = products_df[products_df["ID"] == row["ProductID"]]["Category"]
+            # Selected category of the product based on it's ID
+            category_order.append(category.iloc[0])
+        
+        # New dataframe
+        new_transformed_df = pd.DataFrame({"region": region_order, "category": category_order, "total_spent": spent_per_order})
+        print("New transformed dataframe:")
+        print(new_transformed_df)
+        
+        region_spent = new_transformed_df.groupby("region").sum("total_spent")
+        print("\n\nTotal $ spent by region:")
+        print(region_spent)
+
+        category_spent = new_transformed_df.groupby("category").sum("total_spent")
+        print("\n\nTotal $ spent per category:")
+        print(category_spent)
     except Exception as e:
         # Exception error aliased as 'e' then formatted in the line below
         print(f"Error executing main script: {e}")
