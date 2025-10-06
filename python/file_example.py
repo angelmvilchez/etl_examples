@@ -1,6 +1,7 @@
 # Flat file ETL example
 
 import pandas as pd
+from datetime import datetime as dt
 
 data_path = "../data"
 output_path = "../output"
@@ -66,4 +67,6 @@ def main():
         print(f"Error executing main script: {e}")
 
 if __name__ == "__main__":
+    print("Script started: ", dt.now())
     main()
+    print("Script finished: ", dt.now())
