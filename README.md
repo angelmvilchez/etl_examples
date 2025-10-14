@@ -30,7 +30,7 @@ This case consists in creating two reports of total amount spent by region and c
 ## Usage
 
 ```bash
-git clone https://github.com/angelmvilchez/etl_examples.git
+git clone https://github.com/angelmvilchez/etl_example.git
 ```
 
 #### Execute [file_example.py](/python/file_example.py).
