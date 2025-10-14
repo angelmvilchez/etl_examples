@@ -1,6 +1,6 @@
-# ETL examples
+# Flat files ETL example
 
-ETL examples using Python and different data sources.
+Flat files ETL example using Python and different CSV data sources.
 
 Location: [/python](/python)
 
@@ -13,8 +13,6 @@ pip install pandas
 ```
 
 ## Description
-
-### Flat files ETL
 
 This case consists in creating two reports of total amount spent by region and category, respectively. The source of the data are three files located in [/data](/data), with the execution returning the output in it's corresponding directory [/output](/output).
 
@@ -30,8 +28,6 @@ This case consists in creating two reports of total amount spent by region and c
 #### PD: Each .py file contains more details commented inside the code.
 
 ## Usage
-
-### Flat files ETL
 
 ```bash
 git clone https://github.com/angelmvilchez/etl_examples.git
